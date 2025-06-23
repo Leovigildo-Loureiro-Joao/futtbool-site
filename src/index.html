@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Futebol Estrela</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="css/all.min.css">
+     <link href="css/output.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#dc2626',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-all duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center" id="logo-link">
+                        <i class="fas fa-futbol text-2xl text-primary dark:text-blue-400 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-900 dark:text-white">Estrela FC</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sobre" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 font-medium">Sobre</a>
+                    <a href="#categorias" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 font-medium">Categorias</a>
+                    <a href="#treinadores" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 font-medium">Treinadores</a>
+                    <a href="#contato" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 font-medium">Contato</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden text-gray-700"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+                    </button>
+                    <a href="#matricula" id="matricula-btn" class="bg-primary hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-all">Matricule-se</a>
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="fas fa-bars text-gray-700 dark:text-gray-300"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#sobre" class="nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400">Sobre</a>
+                <a href="#categorias" class="nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400">Categorias</a>
+                <a href="#treinadores" class="nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400">Treinadores</a>
+                <a href="#contato" class="nav-link block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400">Contato</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Formando Campeões Dentro e Fora dos Campos</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Na Academia Estrela FC, desenvolvemos habilidades técnicas, táticas e valores humanos para jovens atletas.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#matricula" id="hero-matricula" class="bg-secondary hover:bg-red-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-all">Matricule-se Agora</a>
+                <a href="#sobre" id="hero-saiba-mais" class="bg-white hover:bg-gray-100 text-gray-800 px-8 py-3 rounded-md font-bold text-lg transition-all">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Sobre a Academia Estrela FC</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Nossa História</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Fundada em 2025, a Academia Estrela FC surgiu com o objetivo de formar não apenas grandes jogadores, mas cidadãos exemplares. Ao longo dos anos, já marcamos passos firmes para nos estabelecermos como uma referência no desenvolvimento esportivo e humano.</p>
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Nossa Metodologia</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Utilizamos uma abordagem holística que desenvolve habilidades técnicas, táticas, físicas e psicológicas, sempre aliando o esporte à educação e formação de valores.</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <i class="fas fa-trophy text-secondary text-2xl mb-2"></i>
+                            <h4 class="font-bold text-gray-800 dark:text-white">+50 Títulos</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Conquistados em competições</p>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+                            <i class="fas fa-user-graduate text-secondary text-2xl mb-2"></i>
+                            <h4 class="font-bold text-gray-800 dark:text-white">+200 Atletas</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Formados profissionalmente</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="image/sobre.jpeg" alt="Treino de futebol" class="rounded-lg shadow-xl w-full h-auto">
+                    <div class="absolute -bottom-6 -right-6 bg-primary text-white p-4 rounded-lg shadow-lg hidden md:block">
+                        <p class="font-bold text-lg">15 anos</p>
+                        <p class="text-sm">de experiência</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section id="categorias" class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Categorias</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">Oferecemos treinamentos especializados para todas as idades, desde a iniciação até o alto rendimento.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <img src="image/Traquinas.jpeg" alt="Traquinas" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Traquinas (6-8  anos)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Iniciação esportiva com atividades lúdicas que desenvolvem coordenação motora e noções básicas do futebol.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary dark:text-blue-400 font-bold">2x por semana</span>
+                            <a href="#matricula" class="text-secondary hover:text-red-700 font-medium text-sm">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <img src="image/infantis.jpeg" alt="Infantil" class="w-full h-48 object-cover ">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Infantil (9-12  anos)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Desenvolvimento técnico e tático com introdução a competições, trabalhando fundamentos e trabalho em equipe.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary dark:text-blue-400 font-bold">3x por semana</span>
+                            <a href="#matricula" class="text-secondary hover:text-red-700 font-medium text-sm">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <img src="image/iniciantes.jpeg" alt="Juvenil" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Iniciados (13-14 anos)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Treinamento avançado com preparação física específica, táticas complexas e participação em torneios regionais.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary dark:text-blue-400 font-bold">4x por semana</span>
+                            <a href="#matricula" class="text-secondary hover:text-red-700 font-medium text-sm">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all card-hover">
+                    <img src="image/juvenis.jpeg" alt="Juvenil" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Juvenil (15-16 anos)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">Treinamento avançado com preparação física específica, táticas complexas e participação em torneios regionais.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary dark:text-blue-400 font-bold">4x por semana</span>
+                            <a href="#matricula" class="text-secondary hover:text-red-700 font-medium text-sm">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treinadores -->
+    <section id="treinadores" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Nossos Treinadores</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">Contamos com uma equipe de profissionais qualificados e experientes para o desenvolvimento dos nossos atletas.</p>
+            </div>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md text-center transition-all card-hover">
+                    <img src="https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Treinador Carlos" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white">Carlos Mendes</h3>
+                        <p class="text-secondary font-medium mb-2">Coordenador Técnico</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Ex-jogador profissional com 10 anos de experiência em formação de atletas.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md text-center transition-all card-hover">
+                    <img src="https://images.unsplash.com/photo-1552667466-07770ae110d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Treinadora Ana" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white">Ana Paula Silva</h3>
+                        <p class="text-secondary font-medium mb-2">Treinadora Infantil</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Especialista em psicomotricidade e desenvolvimento infantil através do esporte.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md text-center transition-all card-hover">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Treinador Rafael" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white">Rafael Costa</h3>
+                        <p class="text-secondary font-medium mb-2">Preparador Físico</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Graduado em Educação Física com especialização em treinamento esportivo.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md text-center transition-all card-hover">
+                    <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" alt="Treinador Marcos" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white">Marcos Oliveira</h3>
+                        <p class="text-secondary font-medium mb-2">Treinador de Goleiros</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Ex-goleiro profissional com vasta experiência em formação de arqueiros.</p>
+                        <div class="flex justify-center space-x-3 mt-4">
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-primary dark:hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Depoimentos</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto"></div>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mt-4">O que pais e atletas dizem sobre a Academia Estrela FC</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mãe do João" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Maria Santos</h4>
+                            <p class="text-gray-500 text-sm">Mãe do João (10 anos)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"Meu filho mudou completamente depois que começou na Estrela FC. Além de melhorar no futebol, está mais disciplinado e responsável. Recomendo muito!"</p>
+                    <div class="flex mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Pedro Henrique" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Pedro Henrique</h4>
+                            <p class="text-gray-500 text-sm">Ex-aluno (17 anos)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"Treinei na Estrela FC por 5 anos e hoje estou no time júnior de um clube grande. Tudo que aprendi foi fundamental para minha carreira."</p>
+                    <div class="flex mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=699&q=80" alt="Pai da Luíza" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800 dark:text-white">Roberto Almeida</h4>
+                            <p class="text-gray-500 text-sm">Pai da Luíza (8 anos)</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"Minha filha ama treinar aqui. A equipe é muito atenciosa e profissional. Vejo ela evoluindo a cada semana, tanto no esporte quanto no convívio social."</p>
+                    <div class="flex mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Matrícula -->
+    <section id="contato" class="py-16 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div id="matricula">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Matricule-se Agora</h2>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="nome" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Nome Completo</label>
+                            <input type="text" id="nome" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">E-mail</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div>
+                            <label for="telefone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Telefone</label>
+                            <input type="tel" id="telefone" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
+                        </div>
+                        <div>
+                            <label for="categoria" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Categoria de Interesse</label>
+                            <select id="categoria" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white">
+                                <option value="">Selecione uma categoria</option>
+                                <option value="fraldinha">Fraldinha (4-6 anos)</option>
+                                <option value="infantil">Infantil (7-12 anos)</option>
+                                <option value="juvenil">Juvenil (13-17 anos)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="mensagem" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Mensagem (Opcional)</label>
+                            <textarea id="mensagem" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white py-3 px-4 rounded-md font-bold transition-all">Enviar Pré-Matrícula</button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Entre em Contato</h2>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary/10 dark:bg-blue-900/50 p-3 rounded-lg text-primary dark:text-blue-400">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Endereço</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Rua dos Esportes, 123 - Bairro Feliz<br>Cidade Esportiva - SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary/10 dark:bg-blue-900/50 p-3 rounded-lg text-primary dark:text-blue-400">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Telefone</h3>
+                                <p class="text-gray-600 dark:text-gray-300">(11) 1234-5678<br>(11) 98765-4321 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary/10 dark:bg-blue-900/50 p-3 rounded-lg text-primary dark:text-blue-400">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">E-mail</h3>
+                                <p class="text-gray-600 dark:text-gray-300">contato@estrelafc.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-primary/10 dark:bg-blue-900/50 p-3 rounded-lg text-primary dark:text-blue-400">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Horário de Funcionamento</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Segunda a Sexta: 8h às 12h e 14h às 20h<br>Sábado: 8h às 14h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Siga-nos nas Redes Sociais</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-100 dark:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white transition-all">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 dark:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white transition-all">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 dark:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white transition-all">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 dark:bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 dark:text-gray-300 hover:bg-primary hover:text-white transition-all">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.6534265844076!3d-23.565734367638153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c5416d!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1623860413129!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-futbol text-primary mr-2"></i> Estrela FC
+                    </h3>
+                    <p class="text-gray-400">Formando campeões dentro e fora dos campos desde 2005.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#sobre" class="text-gray-400 hover:text-white transition-all">Sobre Nós</a></li>
+                        <li><a href="#categorias" class="text-gray-400 hover:text-white transition-all">Categorias</a></li>
+                        <li><a href="#treinadores" class="text-gray-400 hover:text-white transition-all">Treinadores</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-white transition-all">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Horários</h4>
+                    <ul class="text-gray-400 space-y-2">
+                        <li class="flex justify-between">
+                            <span>Seg-Sex:</span>
+                            <span>8h-12h / 14h-20h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábado:</span>
+                            <span>8h-14h</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo:</span>
+                            <span>Fechado</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Assine nossa newsletter para receber novidades e promoções.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu e-mail" class="px-4 py-2 rounded-l-md w-full text-gray-900">
+                        <button type="submit" class="bg-primary hover:bg-blue-700 px-4 py-2 rounded-r-md">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Academia Estrela FC. Todos os direitos reservados.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+        
+        // Set initial theme based on localStorage or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Pré-matrícula enviada com sucesso! Entraremos em contato em breve.');
+                form.reset();
+            });
+        }
+        
+        // Card hover effect
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('shadow-lg');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('shadow-lg');
+            });
+        });
+    </script>
+</body>
+</html>
